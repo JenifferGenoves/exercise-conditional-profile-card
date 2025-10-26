@@ -33,18 +33,43 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${variables.name || "Your name"} ${variables.lastName ||
+    "Your last Name"}</h1>
+          <h2>${variables.role ? variables.role : "Your Role"}</h2> 
+          <h3>${variables.city == null ? "Your City" : variables.city}, ${
+    variables.country == null ? "Your Country" : variables.country
+  }</h3>
+          <ul class="${
+            variables.socialMediaPosition === "position-left"
+              ? "position-left"
+              : "position-right"
+          }">
+            <li><a target="_blank" href=${
+              variables.twitter
+                ? `https://twitter.com/${variables.twitter}`
+                : "https://twitter.com/4geeksacademy"
+            }><i class="fab fa-twitter"></i></a></li>
+            <li><a target="_blank" href=${
+              variables.github
+                ? `https://github.com/${variables.github}`
+                : "https://github.com/4geeksacademy"
+            }><i class="fab fa-github"></i></a></li>
+              <li><a target="_blank" href=${
+                variables.linkedin
+                  ? `${variables.linkedin}`
+                  : "https://linkedin.com/school/4geeksacademy"
+              }><i class="fab fa-linkedin"></i></a></li>
+              <li><a target="_blank" href=${
+                variables.instagram
+                  ? `https://instagram.com/${variables.instagram}`
+                  : "https://instagram.com/4geeksacademy"
+              }><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
 }
+
+//<li><a href="${variables.instagram == null ? "https://instagram.com/4geeksacademy" : variables.instagram}"><i class="fab fa-instagram"></i></a></li>
 
 /**
  * Don't change any of the lines below, here is where we do the logic for the dropdowns
