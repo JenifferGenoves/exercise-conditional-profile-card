@@ -56,7 +56,7 @@ function render(variables = {}) {
             }><i class="fab fa-github"></i></a></li>
               <li><a target="_blank" href=${
                 variables.linkedin
-                  ? `${variables.linkedin}`
+                  ? `https://linkedin.com/in/${variables.linkedin}`
                   : "https://linkedin.com/school/4geeksacademy"
               }><i class="fab fa-linkedin"></i></a></li>
               <li><a target="_blank" href=${
